@@ -2,9 +2,6 @@ import React from "react";
 import "./Weather.css";
 
 export default function Weather() {
-    const apiKey = "4cdad8285585d2a190d4b58d406c5691"
-    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={apiKey}`;
-
     let weatherData = {
     city: "New York",
     date: "Wednesday 4:15PM",
