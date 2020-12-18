@@ -4,9 +4,9 @@ function App() {
   return (
     <div className="App">
      <footer>
-       Coded by Kelsi Williams and is {""} 
+       Coded by Kelsi Williams and is{" "} 
        <a href="https://github.com/kelsi-will/react-weather-app" target="_blank">open-sourced</a>
-        {""} on GitHub
+        {" "}on GitHub
      </footer>
     </div>
   );
