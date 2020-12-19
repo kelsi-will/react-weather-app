@@ -36,19 +36,19 @@
   margin-bottom: 20px;
 }
 
-.Weather .weather-temperature img {
-  margin-right: 5px;
-  height: 64px;
-  width: 64px;
+.Weather canvas {
+  margin-right: 10px;
+  margin-top: 5px;
+  display: inline-block;
 }
 
-.Weather .weather-temperature strong {
+.Weather strong {
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
 }
 
-.Weather .weather-temperature .units {
+.Weather .units {
   position: relative;
   font-size: 16px;
   top: -36px;
