@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import FormattedDate from './FormattedDate';
 
-export default function Weather({ defaultCity }) {
+function Weather({ defaultCity }) {
   const [weatherData, setWeatherData] = useState ({ ready: false });
   function handleResponse(response) {
     setWeatherData({
     ready: true,
     city: response.data.name,
-    date: "Wednesday 4:15PM",
+    date: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
     imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     temperature: response.data.main.temp,
@@ -30,7 +31,7 @@ export default function Weather({ defaultCity }) {
               type="search"
               placeholder="Search a city"
               autoFocus="on"
-              autocomplete="off"
+              autoComplete="off"
             />
           </div>
           <div className="col-4">
@@ -45,7 +46,7 @@ export default function Weather({ defaultCity }) {
         <div className="overview">
         <h1>{weatherData.city}</h1>
         <ul>
-          <li>Last updated: {weatherData.date}</li>
+          <li>Last updated: <FormattedDate date={weatherData.date} /></li>
           <li className="text-capitalize">{weatherData.description}</li>
         </ul>
       </div>
@@ -86,3 +87,4 @@ else {
   return "Loading...";
 }
 }
+export default Weather;
