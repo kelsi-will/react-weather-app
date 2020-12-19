@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-    let weatherData = {
-    city: "New York",
+export default function Weather({ defaultCity }) {
+  const [weatherData, setWeatherData] = useState ({ ready: false });
+  function handleResponse(response) {
+    setWeatherData({
+    ready: true,
+    city: response.data.name,
     date: "Wednesday 4:15PM",
-    description: "Mostly sunny",
+    description: response.data.weather[0].description,
     imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-    temperature: 35,
-    humidity: 41,
-    wind: 6,
-    feelsLike: 25
-  };
+    temperature: response.data.main.temp,
+    humidity: response.data.main.humidity,
+    wind: response.data.wind.speed,
+    feelsLike: response.data.main.feels_like
+    })
+  }
+
+  if(weatherData.ready) {
     return (
-    <div className="Weather">
+     <div className="Weather">
         <form className="mb-3">
         <div className="row">
           <div className="col-8">
@@ -22,7 +29,7 @@ export default function Weather() {
               className="form-control"
               type="search"
               placeholder="Search a city"
-              autofocus="on"
+              autoFocus="on"
               autocomplete="off"
             />
           </div>
@@ -39,7 +46,7 @@ export default function Weather() {
         <h1>{weatherData.city}</h1>
         <ul>
           <li>Last updated: {weatherData.date}</li>
-          <li>{weatherData.description}</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
       </div>
       <div className="row">
@@ -51,7 +58,7 @@ export default function Weather() {
               className="float-left"
             />
             <div className="float-left">
-              <strong>{weatherData.temperature}</strong>
+              <strong>{Math.round(weatherData.temperature)}</strong>
               <span className="units">
                 <a href="/">°F</a> | <a href="/">°C</a>
               </span>
@@ -61,14 +68,21 @@ export default function Weather() {
         <div className="col-6">
           <ul>
             <li>Humidity: {weatherData.humidity}%</li>
-            <li>Wind: {weatherData.wind} mph</li>
+            <li>Wind: {Math.round(weatherData.wind)} mph</li>
           </ul>
         </div>
       </div>
       <p className="feels-like">
-        <em>Feels like</em> {weatherData.feelsLike}°
+        <em>Feels like</em> {Math.round(weatherData.feelsLike)}°
       </p>
     </div>
   );
+} 
+else {
+  const apiKey = "4cdad8285585d2a190d4b58d406c5691";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(handleResponse);
+
+  return "Loading...";
 }
-    
+}

@@ -27,10 +27,6 @@
   padding: 0;
 }
 
-.Weather li:first-letter {
-  text-transform: capitalize;
-}
-
 .Weather .btn {
   border: 1px solid #ffffff;
   border-radius: 10px;
