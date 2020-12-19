@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactLoading from 'react-loading';
 import WeatherInfo from './WeatherInfo';
 import axios from "axios";
 import "./Weather.css";
@@ -8,7 +9,7 @@ function Weather({ defaultCity }) {
   const [city, setCity] = useState ( defaultCity );
   function handleResponse(response) {
     setWeatherData({
-    ready: true,
+    ready: false,
     city: response.data.name,
     date: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
@@ -65,7 +66,16 @@ function Weather({ defaultCity }) {
 } 
 else {
   search();
-  return "Loading...";
+  return (
+    <div className="my-auto">
+  <ReactLoading
+  type="bubbles"
+  color="#000000" 
+  height={'20%'} 
+  width={'20%'} 
+  />
+  </div>
+  );
 }
 }
 export default Weather;

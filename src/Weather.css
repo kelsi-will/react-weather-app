@@ -32,6 +32,10 @@
   border-radius: 10px;
 }
 
+.Weather svg {
+  margin-right: 50px;
+}
+
 .Weather .overview {
   margin-bottom: 20px;
 }
