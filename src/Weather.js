@@ -9,7 +9,7 @@ function Weather({ defaultCity }) {
   const [city, setCity] = useState ( defaultCity );
   function handleResponse(response) {
     setWeatherData({
-    ready: false,
+    ready: true,
     city: response.data.name,
     date: new Date(response.data.dt * 1000),
     description: response.data.weather[0].description,
@@ -67,14 +67,12 @@ function Weather({ defaultCity }) {
 else {
   search();
   return (
-    <div className="my-auto">
   <ReactLoading
   type="bubbles"
   color="#000000" 
   height={'20%'} 
   width={'20%'} 
   />
-  </div>
   );
 }
 }
