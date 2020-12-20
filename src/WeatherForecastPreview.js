@@ -1,15 +1,18 @@
 import React from "react";
 import WeatherIcon from './WeatherIcon';
+import './WeatherForecastPreview.css'
 
 function WeatherForecastPreview({ data }) {
   function hours() {
-  let date = new Date(data.data.dt * 1000)
+  let date = new Date(data.dt * 1000)
   let hours = date.toLocaleString("en-US", {
       hour: "numeric",
       minute: "numeric",
       hour12: true,
       })
-    return `${hours}`
+    return (
+      <div className="hours">{hours}</div>
+    )
   }
 function temperature() {
 let temperature = Math.round(data.main.temp)
