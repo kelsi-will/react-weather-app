@@ -18,7 +18,7 @@ function WeatherTemperature({ fahrenheit }) {
     <div classname="WeatherTemperature">
      <strong>{Math.round(fahrenheit)}</strong>
         <span className="units">
-            <a>°F</a> | <a href="/" onClick={showCelsius}>°C</a>
+            °F | <a href="/" onClick={showCelsius}>°C</a>
         </span>
     </div>
     );
@@ -27,7 +27,7 @@ function WeatherTemperature({ fahrenheit }) {
     <div classname="WeatherTemperature">
      <strong>{Math.round(celsius())}</strong>
         <span className="units">
-            <a href="/" onClick={showFahrenheit}>°F</a> | <a>°C</a>
+            <a href="/" onClick={showFahrenheit}>°F</a> | °C
         </span>
     </div>
     );
