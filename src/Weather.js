@@ -68,14 +68,15 @@ function Weather({ defaultCity }) {
 } 
 else {
   search();
-  return (  
-  <ReactLoading
-    type="bubbles"
-    color="#000000" 
-    height={'20%'} 
-    width={'20%'}
-    className="loader" 
-    />
+  return (
+    <div className="loader">  
+    <ReactLoading
+     type="bubbles"
+     color="#000000" 
+     height={'20%'} 
+     width={'20%'}
+     />
+    </div>
   );
 }
 }
