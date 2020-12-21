@@ -20,20 +20,15 @@ function WeatherInfo({ data }) {
             <WeatherIcon code={data.icon} />
             </div>
             <div className="float-left">
-            <WeatherTemperature fahrenheit={data.temperature} />
+            <WeatherTemperature 
+            fahrenheit={data.temperature}
+            humidity={data.humidity}
+            wind={Math.round(data.wind)}
+            feelsLike={Math.round(data.feelsLike)} />
             </div>
           </div>
         </div>
-        <div className="col-6">
-          <ul>
-            <li>Humidity: {data.humidity}%</li>
-            <li>Wind: {Math.round(data.wind)} mph</li>
-          </ul>
-        </div>
       </div>
-      <p className="feelsLike">
-        <em>Feels like</em> {Math.round(data.feelsLike)}°
-      </p>
     </div>
     );
 }
