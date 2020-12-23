@@ -63,7 +63,7 @@ li {
 
 canvas {
   margin-right: 10px;
-  margin-top: 5px;
+  margin-top: 5px 0;
   display: inline-block;
 }
 

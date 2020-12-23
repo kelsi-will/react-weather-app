@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-function WeatherTemperature({ fahrenheit, humidity, wind, feelsLike }) {
-    const [unit, setUnit] = useState("fahrenheit");
+function WeatherTemperature({ temperature, unit, setUnit  }) {
+    
+  function celsius() {
+        return Math.round((temperature - 32) * 5) / 9;
+    }
+
     function showCelsius(event) {
         event.preventDefault();
         setUnit("celsius");
@@ -10,34 +14,15 @@ function WeatherTemperature({ fahrenheit, humidity, wind, feelsLike }) {
         event.preventDefault();
         setUnit("fahrenheit");
     }
-    function celsius() {
-        return ((fahrenheit - 32) * 5) / 9;
-    }
-    function kilometers() {
-        return (wind * 1.609);
-    }
-    function celsiusFeelsLike() {
-      return ((feelsLike - 32) * 5) / 9;
-    }
+    
     if (unit === "fahrenheit") {
     return (
     <div classname="WeatherTemperature">
-     <strong>{Math.round(fahrenheit)}</strong>
+     <strong>{Math.round(temperature)}</strong>
         <span className="units">
             °F | <a href="/" onClick={showCelsius}>°C</a>
         </span>
-        <div className="row">
-         <div className="col-6">
-          <ul>
-            <li>Humidity: {humidity}%</li>
-            <li>Wind: {wind} mph</li>
-          </ul>
-        </div>
-        </div>
-         <p className="feelsLike">
-        <em>Feels like</em> {feelsLike}°
-      </p>
-    </div>
+      </div> 
     );
 } else {
     return (
@@ -46,16 +31,7 @@ function WeatherTemperature({ fahrenheit, humidity, wind, feelsLike }) {
         <span className="units">
             <a href="/" onClick={showFahrenheit}>°F</a> | °C
         </span>
-        <div className="col-6">
-          <ul>
-            <li>Humidity: {humidity}%</li>
-            <li>Wind: {Math.round(kilometers())} km/h</li>
-          </ul>
         </div>
-        <p className="feelsLike">
-        <em>Feels like</em> {Math.round(celsiusFeelsLike())}°
-      </p>
-    </div>
     );
 }
 }
