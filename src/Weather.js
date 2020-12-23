@@ -54,7 +54,7 @@ function Weather({ defaultCity }) {
           </div>
           <div className="col-4">
             <input
-              className="form-control btn btn-dark w-100"
+              className="form-control btn btn-light w-100"
               type="submit"
               value="search"
             />
@@ -72,7 +72,7 @@ else {
     <div className="loader">  
     <ReactLoading
      type="bubbles"
-     color="#000000" 
+     color="#79a3b1" 
      height={'20%'} 
      width={'20%'}
      />

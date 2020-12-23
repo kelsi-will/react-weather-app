@@ -24,12 +24,14 @@ function WeatherIcon({ code }) {
     };
   
 return (
+  <div className="icon">
   <ReactAnimatedWeather
     icon={codeMapping[code]}
-    color="#ffffff"
+    color="#79a3b1"
     size={52}
     animate={true}
   />
+  </div>
 );
 }
 

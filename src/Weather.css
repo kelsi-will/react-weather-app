@@ -1,35 +1,15 @@
 .Weather {
   border: 1px solid #778899;
-  background: #000000;
+  background: #456268;
   border-radius: 10px;
   padding: 20px;
-  color: #ffffffe1;
+  color: #79a3b1;
 }
 
-.Weather h1 {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
-  margin: 0;
-  text-transform: capitalize;
-}
-
-.Weather ul {
-  margin: 0;
-  padding: 0;
-}
-
-.Weather li {
-  list-style: none;
-  font-size: 18px;
-  line-height: 20px;
-  margin: 0;
-  padding: 0;
-}
-
-.Weather .btn {
+.btn {
   border: 1px solid #ffffff;
   border-radius: 10px;
+  color: #456268;
 }
 
 .loader {
@@ -43,37 +23,53 @@
   justify-content: center;
 }
 
-.Weather .overview {
+.overview {
   margin-bottom: 20px;
 }
 
-.Weather canvas {
-  margin-right: 10px;
-  margin-top: 5px;
-  display: inline-block;
-}
-
-.Weather strong {
-  font-size: 64px;
-  line-height: 1;
-  font-weight: 400;
-}
-
-.Weather .units {
+.units {
   position: relative;
   font-size: 16px;
   top: -36px;
 }
 
-.Weather .weather-description .active {
-  color: #ffffff;
-  cursor: default;
-}
-
-.Weather .weather-description .active:hover {
-  text-decoration: none;
-}
-
-.Weather .feelsLike {
+.feelsLike {
   margin: 8px 0 0 10px;
+  color: #d0e8f2;
+}
+
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  margin: 0;
+  text-transform: capitalize;
+  color: #d0e8f2;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  color: #d0e8f2;
+}
+
+li {
+  list-style: none;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  margin-right: 10px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+strong {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+  color: #d0e8f2;
 }

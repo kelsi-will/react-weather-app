@@ -16,7 +16,9 @@ function WeatherForecastPreview({ data }) {
   }
 function temperature() {
 let temperature = Math.round(data.main.temp)
-return `${temperature}°F`
+return (
+  <div className="temperature">{temperature}°F</div>
+  )
 }
 
   return (
