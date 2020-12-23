@@ -40,7 +40,7 @@ function Weather({ defaultCity }) {
   if(weatherData.ready) {
     return (
      <div className="Weather">
-        <form className="mb-3" onSubmit={handleSubmit}>
+      <form className="mb-3" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-8">
             <input
@@ -63,7 +63,7 @@ function Weather({ defaultCity }) {
       </form>
       <WeatherInfo data={weatherData}/>
       <WeatherForecast city={weatherData.city} />
-        </div>
+  </div>
   );
 } 
 else {
