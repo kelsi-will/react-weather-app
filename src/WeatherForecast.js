@@ -3,7 +3,7 @@ import WeatherForecastPreview from './WeatherForecastPreview';
 import axios from "axios";
 import './WeatherForecast.css';
 
-function WeatherForecast({ city }) {
+function WeatherForecast({ city, unit }) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
 
@@ -14,12 +14,12 @@ function WeatherForecast({ city }) {
   if (loaded && city === forecast.city.name) {
     return (
       <div className="WeatherForecast row">
-        <WeatherForecastPreview data={forecast.list[0]} />
-        <WeatherForecastPreview data={forecast.list[1]} />
-        <WeatherForecastPreview data={forecast.list[2]} />
-        <WeatherForecastPreview data={forecast.list[3]} />
-        <WeatherForecastPreview data={forecast.list[4]} />
-        <WeatherForecastPreview data={forecast.list[5]} />
+        <WeatherForecastPreview data={forecast.list[0]} unit={unit} />
+        <WeatherForecastPreview data={forecast.list[1]} unit={unit} />
+        <WeatherForecastPreview data={forecast.list[2]} unit={unit} />
+        <WeatherForecastPreview data={forecast.list[3]} unit={unit} />
+        <WeatherForecastPreview data={forecast.list[4]} unit={unit} />
+        <WeatherForecastPreview data={forecast.list[5]} unit={unit} />
       </div>
     );
     } else {

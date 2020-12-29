@@ -6,8 +6,10 @@ import axios from "axios";
 import "./Weather.css";
 
 function Weather({ defaultCity }) {
-  const [weatherData, setWeatherData] = useState ({ ready: false });
-  const [city, setCity] = useState ( defaultCity );
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState (defaultCity);
+  const [unit, setUnit] = useState("fahrenheit");
+
   function handleResponse(response) {
     setWeatherData({
     ready: true,
@@ -61,8 +63,8 @@ function Weather({ defaultCity }) {
           </div>
         </div>
       </form>
-      <WeatherInfo data={weatherData}/>
-      <WeatherForecast city={weatherData.city} />
+      <WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
+      <WeatherForecast city={weatherData.city} unit={unit} />
   </div>
   );
 } 
@@ -72,7 +74,7 @@ else {
     <div className="loader">  
     <ReactLoading
      type="bubbles"
-     color="#79a3b1" 
+     color="#456268" 
      height={'20%'} 
      width={'20%'}
      />

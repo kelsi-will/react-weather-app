@@ -1,36 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import FormattedDate from './FormattedDate';
 import WeatherIcon from './WeatherIcon';
 import WeatherTemperature from './WeatherTemperature';
-import WeatherForecastPreview from './WeatherForecastPreview';
 
-function WeatherInfo({ data }) {
-  const [unit, setUnit] = useState("fahrenheit");
-
+function WeatherInfo({ data, unit, setUnit }) {
+  
   function kilometers() {
     return Math.round(data.wind * 1.609);
   }
   function celsiusFeelsLike() {
-    return Math.round((data.feelsLike - 32) * 5) / 9;
+    return Math.round(((data.feelsLike - 32) * 5) / 9);
   }
-  function hours() {
-  let date = new Date(data.dt * 1000)
-  let hours = date.toLocaleString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-      })
-    return (
-      <div className="hours">{hours}</div>
-    )
-  }
-  function temperature() {
-let temperature = Math.round(data.main.temp)
-return (
-  <div className="temperature">{temperature}°F</div>
-  )
-}
-
   if (unit === "fahrenheit") {
     return (
       <div className="WeatherInfo">
@@ -66,14 +46,8 @@ return (
             </ul>
           </div>
         </div>
-        <WeatherForecastPreview 
-        hours={hours()}
-        unit={unit}
-        temperature={data.temperature}
-        icon={<WeatherIcon code={data.weather[0].icon} />}
-        />
       </div>
-    );
+       );
   } else {
     return (
       <div className="WeatherInfo">
@@ -109,10 +83,8 @@ return (
             </ul>
           </div>
         </div>
-      </div>
+       </div>
     );
   }
 }
-
-
 export default WeatherInfo;
